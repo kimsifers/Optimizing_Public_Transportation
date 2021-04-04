@@ -1,0 +1,5 @@
+Welcome to the CTA Status Page!
+{{ int(weather.temperature) }}° | {{ weather.status.title().replace("_", " ") }}
+{% for color, line in (("blue", lines.blue_line), ("green", lines.green_line), ("red", lines.red_line)) %} {% for station in sorted(line.stations.values(), key=lambda x: x.order) %} {% end %} {% end %}
+Line	Station	Train Direction A	Train Direction B	Total Turnstile Entries
+{{ station.station_name }}	{{ station.dir_a["train_id"] if station.dir_a is not None else "---" }}	{{ station.dir_b["train_id"] if station.dir_b is not None else "---" }}	{{ station.num_turnstile_entries }}
